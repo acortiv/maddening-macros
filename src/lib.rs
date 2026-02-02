@@ -26,18 +26,18 @@ macro_rules! mm_assert_ne {
 }
 
 // Pattern for defining trait implementation for variable length tuple
-pub trait ExampleDynamicTupleTrait {}
+pub trait ExampleVariableLengthTupleTrait {}
 
 #[macro_export]
-macro_rules! example_dynamic_tuple_trait_impl {
+macro_rules! example_variable_length_tuple_trait_impl {
     ( $($component:ident),* ; L ) => {
-        impl<L: Display, $($component),*> ExampleDynamicTupleTrait for ($($component,)* L,) {}
+        impl<L: Display, $($component),*> ExampleVariableLengthTupleTrait for ($($component,)* L,) {}
     };
 }
 
-example_dynamic_tuple_trait_impl!(; L);
-example_dynamic_tuple_trait_impl!(T1 ; L);
-example_dynamic_tuple_trait_impl!(T1, T2 ; L);
-example_dynamic_tuple_trait_impl!(T1, T2, T3 ; L);
-example_dynamic_tuple_trait_impl!(T1, T2, T3, T4 ; L);
-example_dynamic_tuple_trait_impl!(T1, T2, T3, T4, T5 ; L);
+example_variable_length_tuple_trait_impl!(; L);
+example_variable_length_tuple_trait_impl!(T1 ; L);
+example_variable_length_tuple_trait_impl!(T1, T2 ; L);
+example_variable_length_tuple_trait_impl!(T1, T2, T3 ; L);
+example_variable_length_tuple_trait_impl!(T1, T2, T3, T4 ; L);
+example_variable_length_tuple_trait_impl!(T1, T2, T3, T4, T5 ; L);
