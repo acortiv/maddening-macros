@@ -28,7 +28,8 @@ macro_rules! mm_assert_ne {
 // Pattern for defining trait implementation for variable length tuple
 pub trait ExampleVariableLengthTupleTrait {}
 
-#[macro_export]
+// Macro Export is not needed as this is done entirely internally
+// #[macro_export]
 macro_rules! example_variable_length_tuple_trait_impl {
     ( $($component:ident),* ; L ) => {
         impl<L: Display, $($component),*> ExampleVariableLengthTupleTrait for ($($component,)* L,) {}
